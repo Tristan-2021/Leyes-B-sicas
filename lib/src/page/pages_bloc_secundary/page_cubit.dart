@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../clean/cubits/cubitpage/cubit/cubtiexample_cubit.dart';
-import '../../clean/model/exmappleentity.dart';
 
 class Pagecubit extends StatelessWidget {
   const Pagecubit({Key? key}) : super(key: key);
@@ -15,11 +14,11 @@ class Pagecubit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> indexString = [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
+      '1 Dato',
+      '2 Dato',
+      '3 Dato',
+      '4 Dato',
+      '5 Dato',
     ];
     int entero = 0;
     Key key = Key('valor_container');
@@ -27,41 +26,6 @@ class Pagecubit extends StatelessWidget {
 
     // ignore: avoid_print
     return Scaffold(
-      floatingActionButton: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          IconButton(
-            key: keyTap,
-            onPressed: () async {
-              var k = BlocProvider.of<CubtiexampleCubit>(context)..name;
-
-              //k.name = k.valor.toString();
-              // indexString[k.valor];
-              context.read<CubtiexampleCubit>().getDataBack(
-                  //const StatesCubit(
-                  // statess: Status.laoded,
-                  //name: ExmappleEntity(name: '2', entero: 1))
-                  );
-            },
-            icon: const Icon(Icons.add),
-          ),
-          IconButton(
-            key: key,
-            onPressed: () {
-              print('imprimir desde la llamada de tester');
-              // var k = BlocProvider.of<CubtiexampleCubit>(context)..name;
-
-              //k.name = k.valor.toString();
-              // indexString[k.valor];
-              context.read<CubtiexampleCubit>().getDataBack(
-                  //const StatesCubit(
-                  // statess: Status.laoded, name: ExmappleEntity(name: '1') )
-                  );
-            },
-            icon: const Icon(Icons.reset_tv),
-          )
-        ],
-      ),
       appBar: AppBar(),
       drawer: Container(
         width: 200,
@@ -72,8 +36,28 @@ class Pagecubit extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            const SizedBox(
-              child: Text('letras'),
+            SizedBox(
+              child: PageView.builder(
+                  onPageChanged: (index) {
+                    var l = BlocProvider.of<CubtiexampleCubit>(context);
+                    l.name = index.toString();
+                    // context.read<CubtiexampleCubit>().getDataBack();
+                    print('datos $index');
+                  },
+                  controller: PageController(viewportFraction: 1),
+                  itemCount: indexString.length,
+                  itemBuilder: (_, index) => GestureDetector(
+                        key: Key('$index'),
+                        onTap: () {
+                          context.read<CubtiexampleCubit>().getDataBack();
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.all(5.0),
+                          padding: const EdgeInsets.all(5.0),
+                          color: Colors.blueAccent,
+                          child: const Text('vacio'),
+                        ),
+                      )),
               height: 100,
             ),
             Expanded(

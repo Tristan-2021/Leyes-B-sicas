@@ -5,7 +5,6 @@ import 'package:mockingjay/mockingjay.dart';
 import 'package:testflutter/src/clean/cubits/cubitpage/cubit/cubtiexample_cubit.dart';
 import 'package:testflutter/src/clean/model/exmappleentity.dart';
 import 'package:testflutter/src/clean/service/service_example.dart';
-import 'package:testflutter/src/page/pages_bloc_principal/pageview/view1.dart';
 import 'package:testflutter/src/page/pages_bloc_secundary/page_cubit.dart';
 
 import '../../mocks/mocks.dart';
@@ -14,6 +13,13 @@ void main() {
   Key key = Key('valor_container');
 
   group('Find widget test', () {
+    List<String> indexString = [
+      '1 Dato',
+      '2 Dato',
+      '3 Dato',
+      '4 Dato',
+      '5 Dato',
+    ];
     late MockNavigator navigator;
     late ServiceExmple mockService;
     late CubtiexampleCubit cubitExample;
@@ -65,15 +71,33 @@ void main() {
         buidwidget(),
       );
 
-      await tester.tap(find.byKey(keyTap));
+      await tester.tap(find.byKey(Key('1')));
       //await tester.tap(find.byKey(keyTap));
 
       //await Future.delayed(const Duration(seconds: 1));
-      verify(() => cubitExample.getDataBack(
-          //StatesCubit(statess: Status.laoded, name: exmappleEntity))
-          )).called(1);
+      // verify(() => cubitExample.getDataBack(
+      //     //StatesCubit(statess: Status.laoded, name: exmappleEntity))
+      //     )).called(1);
 
       // expec t(find.byKey(key), findsOneWidget);
+    });
+    //TODO: testing de pageBuilder que debo implemetnar
+    testWidgets('Renders type Widget scrollViePage onTap FloationBotton',
+        (tester) async {
+      await tester.pumpWidget(
+        BlocProvider.value(
+          value: cubitExample,
+          child: const MaterialApp(
+            home: Pagecubit(),
+          ),
+        ),
+      );
+      final gesture = await tester
+          .startGesture(const Offset(0, 600)); //Position of the scrollview
+      await gesture.moveBy(const Offset(0, -600)); //How much to scroll by
+      await tester.pump();
+
+      expect(find.text('vacio'), findsOneWidget);
     });
   });
 }

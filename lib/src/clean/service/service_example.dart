@@ -9,7 +9,7 @@ class ServiceExmple {
   Future<ExmappleEntity> getaDat(String vacio) async {
     if (vacio.isNotEmpty) {
       print('que pasasa  $vacio');
-      await Future.delayed(Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 1));
       return Future.value(ExmappleEntity(entero: 1, name: vacio));
     } else {
       throw ErrorSearchingCat();
