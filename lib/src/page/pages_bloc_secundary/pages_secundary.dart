@@ -63,13 +63,18 @@ class ListScroll extends StatelessWidget {
       body: Center(
         child: ListView.builder(
             itemCount: indexString.length,
-            itemBuilder: (_, index) => ListTile(
+            itemBuilder: (_, index) => Container(
+                  height: 150,
                   key: Key('key $index'),
-                  leading: const Icon(Icons.more),
-                  onTap: () {
-                    print('onmpres $index');
-                  },
-                  title: Text(indexString[index]),
+                  margin: const EdgeInsets.all(10),
+                  color: Colors.purpleAccent,
+                  child: ListTile(
+                    leading: const Icon(Icons.more),
+                    onTap: () {
+                      print('onmpres $index');
+                    },
+                    title: Text(indexString[index]),
+                  ),
                 )),
       ),
     );

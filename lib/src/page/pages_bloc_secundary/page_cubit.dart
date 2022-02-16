@@ -4,15 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../clean/cubits/cubitpage/cubit/cubtiexample_cubit.dart';
 
 class Pagecubit extends StatelessWidget {
-  const Pagecubit({Key? key}) : super(key: key);
+  final List<String> indexString;
+  const Pagecubit({Key? key, required this.indexString}) : super(key: key);
 
   static Route<void> route() {
-    return MaterialPageRoute(
-        fullscreenDialog: true, builder: (context) => const Pagecubit());
-  }
-
-  @override
-  Widget build(BuildContext context) {
     List<String> indexString = [
       '0 Dato',
       '1 Dato',
@@ -21,6 +16,15 @@ class Pagecubit extends StatelessWidget {
       '4 Dato',
       '5 Dato',
     ];
+    return MaterialPageRoute(
+        fullscreenDialog: true,
+        builder: (context) => const Pagecubit(
+              indexString: [],
+            ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
     int entero = 0;
     Key key = Key('valor_container');
     Key keyTap = Key('tap_onmpres');
@@ -45,7 +49,9 @@ class Pagecubit extends StatelessWidget {
                     // // context.read<CubtiexampleCubit>().getDataBack();
                     // print('datos $index');
                   },
-                  controller: PageController(viewportFraction: 0.60),
+                  controller: PageController(
+                      //initialPage: 1,
+                      viewportFraction: 0.60),
                   itemCount: indexString.length,
                   itemBuilder: (_, index) => GestureDetector(
                         key: Key('key $index'),

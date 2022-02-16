@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -14,6 +15,7 @@ void main() {
 
   group('Find widget test', () {
     List<String> indexString = [
+      '0 Dato',
       '1 Dato',
       '2 Dato',
       '3 Dato',
@@ -46,8 +48,10 @@ void main() {
     Widget buidwidget() {
       return BlocProvider.value(
         value: cubitExample,
-        child: const MaterialApp(
-          home: Pagecubit(),
+        child: MaterialApp(
+          home: Pagecubit(
+            indexString: indexString,
+          ),
         ),
       );
     }
@@ -88,20 +92,32 @@ void main() {
       await tester.pumpWidget(
         BlocProvider.value(
           value: cubitExample,
-          child: const MaterialApp(
-            home: Pagecubit(),
+          child: MaterialApp(
+            home: Pagecubit(
+              indexString: List.generate(6, (index) => '$index Dato'),
+            ),
           ),
         ),
       );
       //final gesture = await tester.startGesture(
       //  const Offset(880.0, 106.0)); //Position of the scrollview
-      await tester.drag(find.byType(PageView), const Offset(0, 300));
-      // await tester.dragUntilVisible(find.byKey(const Key('key 1')),
-      //     find.byType(PageView), const Offset(0, 60));
-      //await gesture.moveBy(const Offset(880.0, 106.0)); //How much to scroll by
+      PageController controoelr = PageController(initialPage: 1);
+      await tester.drag(find.byType(PageView), const Offset(880.0, 106.0),
+          pointer: 1);
+      // await tester.getCenter(find.byType(Viewport));
+      // final Offset scrollEventLocation =
+      //     tester.getCenter(find.byType(Viewport));
+      // PointerDeviceKind kind = PointerDeviceKind.touch;
+      // final TestPointer testPointer = TestPointer(1, kind);
+      // // Create a hover event so that |testPointer| has a location when generating the scroll.
+      // testPointer.hover(scrollEventLocation);
+      final Offset point = tester.getCenter(find.byKey(const Key('key 1')));
+      //   await tester.dragFrom(point, const Offset(0.0, -400.0));
+      // await tester.dragUntilVisible(
+      //     find.text('0 Dato'), find.byType(PageView), const Offset(0, 60));
+      // await gesture.moveBy(const Offset(880.0, 106.0)); //How much to scroll by
       await tester.pump();
       await tester.tap(find.byKey(const Key('key 1')));
-
       expect(find.text('1 Dato'), findsOneWidget);
     });
   });
