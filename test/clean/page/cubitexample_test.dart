@@ -84,6 +84,7 @@ void main() {
     //TODO: testing de pageBuilder que debo implemetnar
     testWidgets('Renders type Widget scrollViePage onTap FloationBotton',
         (tester) async {
+      int uno = 1;
       await tester.pumpWidget(
         BlocProvider.value(
           value: cubitExample,
@@ -92,12 +93,16 @@ void main() {
           ),
         ),
       );
-      final gesture = await tester
-          .startGesture(const Offset(0, 600)); //Position of the scrollview
-      await gesture.moveBy(const Offset(0, -600)); //How much to scroll by
+      //final gesture = await tester.startGesture(
+      //  const Offset(880.0, 106.0)); //Position of the scrollview
+      await tester.drag(find.byType(PageView), const Offset(0, 300));
+      // await tester.dragUntilVisible(find.byKey(const Key('key 1')),
+      //     find.byType(PageView), const Offset(0, 60));
+      //await gesture.moveBy(const Offset(880.0, 106.0)); //How much to scroll by
       await tester.pump();
+      await tester.tap(find.byKey(const Key('key 1')));
 
-      expect(find.text('vacio'), findsOneWidget);
+      expect(find.text('1 Dato'), findsOneWidget);
     });
   });
 }

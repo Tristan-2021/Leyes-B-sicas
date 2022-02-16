@@ -9,6 +9,7 @@ class ViewPage2 extends StatelessWidget {
         appBar: AppBar(),
         backgroundColor: Colors.blue,
         body: const Center(child: Text('vacío'))
+
         //     Center(
         //   child: BlocConsumer<Page2Bloc, Page2States>(
         //     listener: (context, state) {
@@ -43,9 +44,33 @@ class Error extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      appBar: AppBar(),
+      body: const Center(
+        child: Text('ERror'),
+      ),
+    );
+  }
+}
+
+class ListScroll extends StatelessWidget {
+  final List<String> indexString;
+  const ListScroll({Key? key, required this.indexString}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
       body: Center(
-        child: Text('Error '),
+        child: ListView.builder(
+            itemCount: indexString.length,
+            itemBuilder: (_, index) => ListTile(
+                  key: Key('key $index'),
+                  leading: const Icon(Icons.more),
+                  onTap: () {
+                    print('onmpres $index');
+                  },
+                  title: Text(indexString[index]),
+                )),
       ),
     );
   }

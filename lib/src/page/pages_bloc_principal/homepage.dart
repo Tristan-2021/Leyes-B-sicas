@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:testflutter/src/page/pages_bloc_principal/pageview/view0.dart';
 import 'package:testflutter/src/page/pages_bloc_principal/pageview/view1.dart';
+import '../../clean/blocs/tabs/views/texfieldform.dart';
 import '../../clean/cubits/cubit/cubitprincipal/home_cubit.dart';
 import '../../clean/blocs/tabs/bloc/bottonnavigator_bloc.dart';
 import '../pages_bloc_secundary/pages_secundary.dart';
@@ -85,13 +86,20 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> indexString = [
+      '1 Dato',
+      '2 Dato',
+      '3 Dato',
+      '4 Dato',
+      '5 Dato',
+    ];
     return Scaffold(
       body: BlocBuilder<BottonnavigatorBloc, BottonnavigatorState>(
         builder: (context, state) {
           if (state is BottonnavigatorLoaded) {
             switch (state.index) {
               case 0:
-                return const ViewPage0();
+                return const TextForm();
 
               case 1:
                 return ViewPage1(
@@ -100,7 +108,9 @@ class HomeView extends StatelessWidget {
                 );
 
               case 2:
-                return const ViewPage2();
+                return ListScroll(
+                  indexString: indexString,
+                );
 
               default:
                 return const Error();

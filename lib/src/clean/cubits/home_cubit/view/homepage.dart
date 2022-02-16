@@ -79,42 +79,42 @@ class _HomeTabButton extends StatelessWidget {
   }
 }
 
-class HomeView extends StatelessWidget {
-  const HomeView({
-    Key? key,
-  }) : super(key: key);
+// class HomeView extends StatelessWidget {
+//   const HomeView({
+//     Key? key,
+//   }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<BottonnavigatorBloc, BottonnavigatorState>(
-        builder: (context, state) {
-          if (state is BottonnavigatorLoaded) {
-            switch (state.index) {
-              case 0:
-                return const ViewPage0();
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: BlocBuilder<BottonnavigatorBloc, BottonnavigatorState>(
+//         builder: (context, state) {
+//           if (state is BottonnavigatorLoaded) {
+//             switch (state.index) {
+//               case 0:
+//                 return const ViewPage0();
 
-              case 1:
-                return ViewPage1(
-                  index: state.index,
-                  name: state.name,
-                );
+//               case 1:
+//                 return ViewPage1(
+//                   index: state.index,
+//                   name: state.name,
+//                 );
 
-              case 2:
-                return const ViewPage2();
+//               case 2:
+//                 return const ListScroll();
 
-              default:
-                return const Error();
-            }
-          } else {
-            return const SizedBox();
-          }
-        },
-      ),
-      bottomNavigationBar: const CustonNavigatrBart(),
-    );
-  }
-}
+//               default:
+//                 return const Error();
+//             }
+//           } else {
+//             return const SizedBox();
+//           }
+//         },
+//       ),
+//       bottomNavigationBar: const CustonNavigatrBart(),
+//     );
+//   }
+// }
 
 
 

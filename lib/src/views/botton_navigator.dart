@@ -25,7 +25,7 @@ class CustonNavigatrBart extends StatelessWidget {
               BottomNavigationBarItem(
                   label: 'Oitra cosa', icon: Icon(Icons.ac_unit)),
               BottomNavigationBarItem(
-                  label: 'REadme', icon: Icon(Icons.read_more))
+                  label: 'Readme', icon: Icon(Icons.read_more)),
             ],
           );
         }

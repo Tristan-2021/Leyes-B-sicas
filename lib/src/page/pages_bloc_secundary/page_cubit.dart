@@ -14,6 +14,7 @@ class Pagecubit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> indexString = [
+      '0 Dato',
       '1 Dato',
       '2 Dato',
       '3 Dato',
@@ -39,23 +40,24 @@ class Pagecubit extends StatelessWidget {
             SizedBox(
               child: PageView.builder(
                   onPageChanged: (index) {
-                    var l = BlocProvider.of<CubtiexampleCubit>(context);
-                    l.name = index.toString();
-                    // context.read<CubtiexampleCubit>().getDataBack();
-                    print('datos $index');
+                    // var l = BlocProvider.of<CubtiexampleCubit>(context);
+                    // l.name = index.toString();
+                    // // context.read<CubtiexampleCubit>().getDataBack();
+                    // print('datos $index');
                   },
-                  controller: PageController(viewportFraction: 1),
+                  controller: PageController(viewportFraction: 0.60),
                   itemCount: indexString.length,
                   itemBuilder: (_, index) => GestureDetector(
-                        key: Key('$index'),
+                        key: Key('key $index'),
                         onTap: () {
-                          context.read<CubtiexampleCubit>().getDataBack();
+                          print('valor del index $index');
+                          //context.read<CubtiexampleCubit>().getDataBack();
                         },
                         child: Container(
                           margin: const EdgeInsets.all(5.0),
                           padding: const EdgeInsets.all(5.0),
                           color: Colors.blueAccent,
-                          child: const Text('vacio'),
+                          child: Text(indexString[index]),
                         ),
                       )),
               height: 100,
