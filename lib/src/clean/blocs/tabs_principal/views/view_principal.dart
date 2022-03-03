@@ -27,7 +27,6 @@ class HomeView extends StatelessWidget {
       '5 Dato',
     ];
     return Scaffold(
-      appBar: AppBar(),
       body: BlocBuilder<BottonnavigatorBloc, BottonnavigatorState>(
         builder: (context, state) {
           if (state is BottonnavigatorLoaded) {

@@ -29,6 +29,7 @@ class Pagecubit extends StatelessWidget {
 
     // ignore: avoid_print
     return Scaffold(
+      key: key,
       appBar: AppBar(),
       drawer: Container(
         width: 200,
@@ -41,6 +42,7 @@ class Pagecubit extends StatelessWidget {
           children: [
             SizedBox(
               child: PageView.builder(
+                  pageSnapping: true,
                   onPageChanged: (index) {
                     // var l = BlocProvider.of<CubtiexampleCubit>(context);
                     // l.name = index.toString();
@@ -49,10 +51,10 @@ class Pagecubit extends StatelessWidget {
                   },
                   controller: PageController(
                       //initialPage: 1,
-                      viewportFraction: 1.0),
+                      viewportFraction: 0.60),
                   itemCount: indexString.length,
                   itemBuilder: (_, index) => GestureDetector(
-                        key: Key('key $index'),
+                        key: Key('$index'),
                         onTap: () {
                           print('valor del index $index');
                           //context.read<CubtiexampleCubit>().getDataBack();

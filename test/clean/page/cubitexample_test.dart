@@ -10,7 +10,7 @@ import 'package:testflutter/src/page/page_bloc_and_cubir.dart';
 import '../../mocks/mocks.dart';
 
 void main() {
-  Key key = Key('valor_container');
+  Key key = const Key('valor_container');
 
   group('Find widget test', () {
     List<String> indexString = [
@@ -25,7 +25,6 @@ void main() {
     late ServiceExmple mockService;
     late CubtiexampleCubit cubitExample;
     //late ExmappleEntity exmappleEntity;
-    const valorkey = Key('keyTap');
     Key keyTap = const Key('tap_onmpres');
 
     var exmappleEntity = const ExmappleEntity(entero: 1, name: '2');
@@ -61,33 +60,10 @@ void main() {
       );
       expect(find.byType(Pagecubit), findsOneWidget);
     });
-    testWidgets('Renders type Widget Pagecubit center', (tester) async {
-      await tester.pumpWidget(
-        buidwidget(),
-      );
-      expect(find.byKey(key), findsOneWidget);
-    });
 
-    testWidgets('Renders type Widget Pagecubit onTap FloationBotton',
-        (tester) async {
-      await tester.pumpWidget(
-        buidwidget(),
-      );
-
-      await tester.tap(find.byKey(Key('1')));
-      //await tester.tap(find.byKey(keyTap));
-
-      //await Future.delayed(const Duration(seconds: 1));
-      // verify(() => cubitExample.getDataBack(
-      //     //StatesCubit(statess: Status.laoded, name: exmappleEntity))
-      //     )).called(1);
-
-      // expec t(find.byKey(key), findsOneWidget);
-    });
     //TODO: testing de pageBuilder que debo implemetnar
     testWidgets('Renders type Widget scrollViePage onTap FloationBotton',
         (tester) async {
-      int uno = 1;
       await tester.pumpWidget(
         BlocProvider.value(
           value: cubitExample,
@@ -98,11 +74,26 @@ void main() {
           ),
         ),
       );
-      //final gesture = await tester.startGesture(
+
+      await tester.scrollUntilVisible(find.byKey(const Key('0')), 3.0);
+      await tester.pumpAndSettle();
+      await tester.pump();
+      await tester.tap(find.byKey(const Key('0'), skipOffstage: false));
+
+      expect(find.text('0 Dato', skipOffstage: false), findsOneWidget);
+
+      await tester.scrollUntilVisible(find.byKey(const Key('1')), 3.1);
+      await tester.pumpAndSettle();
+      await tester.pump();
+      await tester.tap(find.byKey(const Key('1'), skipOffstage: false));
+
+      expect(find.text('1 Dato', skipOffstage: false), findsOneWidget);
+    });
+  });
+}
+ //final gesture = await tester.startGesture(
       //  const Offset(880.0, 106.0)); //Position of the scrollview
-      PageController controoelr = PageController(initialPage: 1);
-      await tester.drag(find.byType(PageView), const Offset(880.0, 106.0),
-          pointer: 1);
+
       // await tester.getCenter(find.byType(Viewport));
       // final Offset scrollEventLocation =
       //     tester.getCenter(find.byType(Viewport));
@@ -110,14 +101,28 @@ void main() {
       // final TestPointer testPointer = TestPointer(1, kind);
       // // Create a hover event so that |testPointer| has a location when generating the scroll.
       // testPointer.hover(scrollEventLocation);
-      final Offset point = tester.getCenter(find.byKey(const Key('key 1')));
-      //   await tester.dragFrom(point, const Offset(0.0, -400.0));
+      // final gesture = await tester
+      //     .startGesture(const Offset(0, 300)); //Position of the scrollview
+      // await gesture.moveBy(const Offset(0, 600));
+      // await tester.pump();
+      // final Offset point = tester.getCenter(find.byKey(const Key('1')));
+      //
+      // await tester    .ensureVisible(find.byKey(const Key('1'), skipOffstage: false));
+      //await tester.drag(find.byType(PageView), const Offset(0, -500));
+      // await tester.scrollUntilVisible(find.byKey(const Key('2')), 2);
+      // await tester.pumpAndSettle();
+
       // await tester.dragUntilVisible(
       //     find.text('0 Dato'), find.byType(PageView), const Offset(0, 60));
-      // await gesture.moveBy(const Offset(880.0, 106.0)); //How much to scroll by
-      await tester.pump();
-      await tester.tap(find.byKey(const Key('key 1')));
-      expect(find.text('1 Dato'), findsOneWidget);
-    });
-  });
-}
+      // // await gesture.moveBy(const Offset(880.0, 106.0)); //How much to scroll by
+      // await tester.pump();
+      // await tester.tap(find.byKey(const Key('0'), skipOffstage: false));
+
+      // expect(find.text('0 Dato', skipOffstage: false), findsOneWidget);
+      // await tester.dragUntilVisible(
+      //     find.text('1 Dato'), find.byType(PageView), const Offset(60, 90));
+      // // await gesture.moveBy(const Offset(880.0, 106.0)); //How much to scroll by
+      // await tester.pump();
+      // await tester.tap(find.byKey(const Key('1'), skipOffstage: false));
+
+      // expect(find.text('1 Dato', skipOffstage: false), findsOneWidget);
