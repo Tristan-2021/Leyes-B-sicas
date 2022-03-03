@@ -44,7 +44,7 @@ class _TextFormState extends State<TextForm> {
                     child: TextFormField(
                       onChanged: (String value) {},
                       decoration: const InputDecoration(
-                          labelText: 'Escribe el correo',
+                          labelText: 'Escribe el email',
                           border: InputBorder.none),
                     )),
                 TextButton(

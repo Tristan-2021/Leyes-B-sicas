@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,7 +5,7 @@ import 'package:mockingjay/mockingjay.dart';
 import 'package:testflutter/src/clean/cubits/cubitpage/cubit/cubtiexample_cubit.dart';
 import 'package:testflutter/src/clean/model/exmappleentity.dart';
 import 'package:testflutter/src/clean/service/service_example.dart';
-import 'package:testflutter/src/page/pages_bloc_secundary/page_cubit.dart';
+import 'package:testflutter/src/page/page_bloc_and_cubir.dart';
 
 import '../../mocks/mocks.dart';
 

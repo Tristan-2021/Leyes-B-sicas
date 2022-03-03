@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockingjay/mockingjay.dart';
-import 'package:mocktail/mocktail.dart';
-import 'package:testflutter/src/clean/blocs/tabs/bloc/bottonnavigator_bloc.dart';
-import 'package:testflutter/src/page/pages_bloc_principal/homepage.dart';
-import 'package:testflutter/src/page/pages_bloc_principal/pageview/view0.dart';
-import 'package:testflutter/src/page/pages_bloc_principal/pageview/view1.dart';
-import 'package:testflutter/src/page/pages_bloc_secundary/page_cubit.dart';
-import 'package:testflutter/src/page/pages_bloc_secundary/pages_secundary.dart';
+import 'package:testflutter/src/clean/blocs/tabs_principal/bloc/bottonnavigator_bloc.dart';
+import 'package:testflutter/src/clean/blocs/tabs_principal/views/View_principal.dart';
+import 'package:testflutter/src/clean/blocs/tabs_principal/views/tabs_secundary_pages/otro_cosa.dart';
+
+import 'package:testflutter/src/clean/cubits/home_cubit/view/view0.dart';
+import 'package:testflutter/src/clean/cubits/home_cubit/view/pages_secundary.dart';
 
 import '../../mocks/mocks.dart';
 
@@ -113,7 +112,7 @@ void main() {
       //verify(() async => mockObserver.navigator!.pushNamed('routeName'));
       verify(() => navigator.push(any(that: isRoute<void>()))).called(1);
       //verify(() => navigator.pushNamed('pagecubit')).called(0);
-     // verifyNever(() => navigator.push(any(that: isRoute<void>())));
+      // verifyNever(() => navigator.push(any(that: isRoute<void>())));
     });
     testWidgets('render BottonLoading[1] Icon onTap FloatingActionButton',
         (tester) async {

@@ -6,8 +6,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:network_image_mock/network_image_mock.dart';
 import 'package:testflutter/src/clean/blocs/page2/bloc/page2_bloc.dart';
 import 'package:testflutter/src/clean/model/cat.dart';
-import 'package:testflutter/src/page/pages_bloc_principal/homepage.dart';
-import 'package:testflutter/src/page/pages_bloc_secundary/pages_secundary.dart';
+import 'package:testflutter/src/clean/cubits/home_cubit/view/pages_secundary.dart';
 
 import '../../mocks/mocks.dart';
 

@@ -1,17 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:testflutter/src/clean/blocs/tabs_principal/bloc/bottonnavigator_bloc.dart';
 
-import '../../../clean/blocs/tabs/bloc/bottonnavigator_bloc.dart';
-import '../../pages_bloc_secundary/page_cubit.dart';
-
-class ViewPagePrincipal extends StatelessWidget {
-  const ViewPagePrincipal({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+import '../../../../../page/page_bloc_and_cubir.dart';
 
 class ViewPage1 extends StatelessWidget {
   final String name;

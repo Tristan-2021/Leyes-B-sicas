@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:testflutter/src/page/pages_bloc_secundary/pages_secundary.dart';
+import 'package:testflutter/src/clean/blocs/tabs_principal/views/tabs_secundary_pages/list_scroll.dart';
+import 'package:testflutter/src/clean/cubits/home_cubit/view/pages_secundary.dart';
 
 void main() {
   group('Scroll test', () {

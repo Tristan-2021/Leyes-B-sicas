@@ -7,5 +7,7 @@ String? validatenombre(String? value) {
     } else {
       return "nombre incorrecto, no usar tíldes";
     }
+  } else {
+    return null;
   }
 }

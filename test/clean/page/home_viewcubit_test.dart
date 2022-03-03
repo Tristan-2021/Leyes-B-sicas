@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockingjay/mockingjay.dart';
+import 'package:testflutter/src/clean/blocs/tabs_principal/views/tabs_secundary_pages/otro_cosa.dart';
 import 'package:testflutter/src/clean/cubits/cubit/cubitprincipal/home_cubit.dart';
-import 'package:testflutter/src/page/pages_bloc_principal/homepage.dart';
-import 'package:testflutter/src/page/pages_bloc_principal/pageview/view0.dart';
-import 'package:testflutter/src/page/pages_bloc_principal/pageview/view1.dart';
-import 'package:testflutter/src/page/pages_bloc_secundary/pages_secundary.dart';
+import 'package:testflutter/src/clean/cubits/home_cubit/view/homepage.dart';
+import 'package:testflutter/src/clean/cubits/home_cubit/view/view0.dart';
 
 import '../../mocks/mocks.dart';
 

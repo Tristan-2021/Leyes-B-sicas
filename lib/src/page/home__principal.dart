@@ -4,11 +4,11 @@ import 'package:testflutter/src/clean/cubits/cubitpage/cubit/cubtiexample_cubit.
 import 'package:testflutter/src/clean/service/service_example.dart';
 import '../clean/cubits/cubit/cubitprincipal/home_cubit.dart';
 import '../clean/blocs/page2/bloc/page2_bloc.dart';
-import '../clean/blocs/tabs/bloc/bottonnavigator_bloc.dart';
+import '../clean/blocs/tabs_principal/bloc/bottonnavigator_bloc.dart';
 import '../clean/reposity/reposity.dart';
 import '../clean/service/service.dart';
 
-import 'pages_bloc_principal/homepage.dart';
+import 'bienvnida.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: const HomeView(),
+          home: const Bienvenida(),
           // routes: <String, WidgetBuilder>{
           //   '/': (BuildContext context) => const HomeView(),
           //   'Valors': (BuildContext context) => const ViewPage2(),

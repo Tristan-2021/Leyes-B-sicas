@@ -2,7 +2,7 @@ import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:testflutter/src/clean/blocs/page2/bloc/page2_bloc.dart';
-import 'package:testflutter/src/clean/blocs/tabs/bloc/bottonnavigator_bloc.dart';
+import 'package:testflutter/src/clean/blocs/tabs_principal/bloc/bottonnavigator_bloc.dart';
 import 'package:testflutter/src/clean/cubits/cubit/cubitprincipal/home_cubit.dart';
 import 'package:testflutter/src/clean/cubits/cubitpage/cubit/cubtiexample_cubit.dart';
 import 'package:testflutter/src/clean/model/exmappleentity.dart';

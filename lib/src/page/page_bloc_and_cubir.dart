@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../clean/cubits/cubitpage/cubit/cubtiexample_cubit.dart';
+import '../clean/cubits/cubitpage/cubit/cubtiexample_cubit.dart';
 
 class Pagecubit extends StatelessWidget {
   final List<String> indexString;
   const Pagecubit({Key? key, required this.indexString}) : super(key: key);
 
   static Route<void> route() {
-    List<String> indexString = [
+    List<String> indexString1 = [
       '0 Dato',
       '1 Dato',
       '2 Dato',
@@ -18,16 +18,14 @@ class Pagecubit extends StatelessWidget {
     ];
     return MaterialPageRoute(
         fullscreenDialog: true,
-        builder: (context) => const Pagecubit(
-              indexString: [],
+        builder: (context) => Pagecubit(
+              indexString: indexString1,
             ));
   }
 
   @override
   Widget build(BuildContext context) {
-    int entero = 0;
-    Key key = Key('valor_container');
-    Key keyTap = Key('tap_onmpres');
+    Key key = const Key('valor_container');
 
     // ignore: avoid_print
     return Scaffold(
@@ -51,7 +49,7 @@ class Pagecubit extends StatelessWidget {
                   },
                   controller: PageController(
                       //initialPage: 1,
-                      viewportFraction: 0.60),
+                      viewportFraction: 1.0),
                   itemCount: indexString.length,
                   itemBuilder: (_, index) => GestureDetector(
                         key: Key('key $index'),
@@ -62,11 +60,11 @@ class Pagecubit extends StatelessWidget {
                         child: Container(
                           margin: const EdgeInsets.all(5.0),
                           padding: const EdgeInsets.all(5.0),
-                          color: Colors.blueAccent,
+                          color: Colors.red,
                           child: Text(indexString[index]),
                         ),
                       )),
-              height: 100,
+              height: 200,
             ),
             Expanded(
               child: BlocBuilder<CubtiexampleCubit, StatesCubit>(

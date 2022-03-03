@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../clean/blocs/tabs/bloc/bottonnavigator_bloc.dart';
+import '../bloc/bottonnavigator_bloc.dart';
 
 class CustonNavigatrBart extends StatelessWidget {
   const CustonNavigatrBart({
@@ -23,9 +23,9 @@ class CustonNavigatrBart extends StatelessWidget {
               BottomNavigationBarItem(
                   label: 'Alarma', icon: Icon(Icons.access_alarm_rounded)),
               BottomNavigationBarItem(
-                  label: 'Oitra cosa', icon: Icon(Icons.ac_unit)),
+                  label: 'Otra cosa', icon: Icon(Icons.ac_unit)),
               BottomNavigationBarItem(
-                  label: 'Readme', icon: Icon(Icons.read_more)),
+                  label: 'Readme', icon: Icon(Icons.read_more))
             ],
           );
         }

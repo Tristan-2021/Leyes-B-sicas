@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../page/pages_bloc_principal/pageview/view0.dart';
-import '../../../../page/pages_bloc_principal/pageview/view1.dart';
-import '../../../../page/pages_bloc_secundary/pages_secundary.dart';
-import '../../../../views/botton_navigator.dart';
-import '../../../blocs/tabs/bloc/bottonnavigator_bloc.dart';
+import 'view0.dart';
+import 'pages_secundary.dart';
+import '../../../blocs/tabs_principal/views/tabs_secundary_pages/otro_cosa.dart';
 import '../../cubit/cubitprincipal/home_cubit.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
+  static Route<void> route() {
+    return MaterialPageRoute(
+        fullscreenDialog: true, builder: (context) => const HomePage());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +29,7 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+        heroTag: 'value',
         key: const Key('homeView_addTodo_floatingActionButton'),
         onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
           builder: (BuildContext context) => const ViewPage2(),
@@ -78,76 +81,3 @@ class _HomeTabButton extends StatelessWidget {
     );
   }
 }
-
-// class HomeView extends StatelessWidget {
-//   const HomeView({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: BlocBuilder<BottonnavigatorBloc, BottonnavigatorState>(
-//         builder: (context, state) {
-//           if (state is BottonnavigatorLoaded) {
-//             switch (state.index) {
-//               case 0:
-//                 return const ViewPage0();
-
-//               case 1:
-//                 return ViewPage1(
-//                   index: state.index,
-//                   name: state.name,
-//                 );
-
-//               case 2:
-//                 return const ListScroll();
-
-//               default:
-//                 return const Error();
-//             }
-//           } else {
-//             return const SizedBox();
-//           }
-//         },
-//       ),
-//       bottomNavigationBar: const CustonNavigatrBart(),
-//     );
-//   }
-// }
-
-
-
-
-//  if (state is Page2Initial) {
-//             context.read<Page2Bloc>().add(const PageData('index'));
-
-//             return const Center(
-//                 child: Text(
-//               'cargando.......',
-//               style: TextStyle(fontSize: 20.0),
-//             ));
-//           } else if (state is Page2Loaded) {
-//             if (state.name == 'Aplasatrd de Nuevo otra vez') {
-//               return const Center(child: Text('VAcíoooooooooo'));
-//             }
-//             return Center(
-//                 child: Column(
-//               mainAxisAlignment: MainAxisAlignment.center,
-//               children: [
-//                 Text('Página 2 ${state.name}'),
-//                 Container(
-//                   color: Colors.amberAccent,
-//                   child: TextButton(
-//                       onPressed: () {
-//                         context.read<Page2Bloc>().add(const PageData1(
-//                             'Aplasatrd de Nuevo otra vez', true));
-//                       },
-//                       child: const Text('Aplasta')),
-//                 )
-//               ],
-//             ));
-//           } else if (state is Page2Error) {
-//             return Text(state.error);
-//           }
-//           return const Text('state.error');

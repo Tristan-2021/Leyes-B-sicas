@@ -9,7 +9,7 @@ class ViewPage0 extends StatelessWidget {
     return const Scaffold(
       backgroundColor: Colors.red,
       body: Center(
-        child: Text('Página 0'),
+        child: Text('Página 0 Cubit'),
       ),
     );
   }

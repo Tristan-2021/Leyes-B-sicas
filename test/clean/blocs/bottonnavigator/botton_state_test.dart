@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:testflutter/src/clean/blocs/tabs/bloc/bottonnavigator_bloc.dart';
+import 'package:testflutter/src/clean/blocs/tabs_principal/bloc/bottonnavigator_bloc.dart';
 
 void main() {
   group('comparations values State', () {
