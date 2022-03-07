@@ -10,8 +10,6 @@ import 'package:testflutter/src/page/page_bloc_and_cubir.dart';
 import '../../mocks/mocks.dart';
 
 void main() {
-  Key key = const Key('valor_container');
-
   group('Find widget test', () {
     List<String> indexString = [
       '0 Dato',
